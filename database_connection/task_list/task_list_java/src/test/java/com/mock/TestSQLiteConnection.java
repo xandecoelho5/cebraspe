@@ -1,11 +1,13 @@
-package com.database;
+package com.mock;
 
-public class SQLiteConnection extends DbConnection {
+import com.database.DbConnection;
+
+public class TestSQLiteConnection extends DbConnection {
 
   @Override
   protected void init() {
     driverClassName = "org.sqlite.JDBC";
-    url = "jdbc:sqlite:src/main/resources/task_list.db";
+    url = "jdbc:sqlite:src/main/resources/task_list_test.db";
     createTableQuery = """
             CREATE TABLE IF NOT EXISTS task(
               id INTEGER PRIMARY KEY AUTOINCREMENT,

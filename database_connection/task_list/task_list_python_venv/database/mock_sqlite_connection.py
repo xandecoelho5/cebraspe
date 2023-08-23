@@ -1,0 +1,16 @@
+import sqlite3
+from database.db_connection import DbConnection
+
+
+class MockSQLiteConnection(DbConnection):
+  create_table_query = """
+  CREATE TABLE IF NOT EXISTS task(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    created_at DATETIME
+  );
+  """
+
+  def get_connection(self):
+    return sqlite3.connect("resources/task_list_test.db")

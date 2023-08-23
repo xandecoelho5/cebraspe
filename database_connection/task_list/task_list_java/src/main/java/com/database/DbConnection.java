@@ -10,13 +10,15 @@ public abstract class DbConnection implements AutoCloseable {
   protected String url;
   protected String user;
   protected String password;
+  protected String createTableQuery;
   protected Connection con = null;
 
-  abstract void init();
+  protected abstract void init();
 
   public DbConnection() {
     init();
     connect();
+    createTable();
   }
 
   public void connect() {
@@ -39,6 +41,14 @@ public abstract class DbConnection implements AutoCloseable {
       }
     } catch (SQLException ex) {
       System.err.println("Erro ao fechar a conexão: " + ex.getMessage());
+    }
+  }
+
+  private void createTable() {
+    try (var preparedStatement = con.prepareStatement(createTableQuery)) {
+      preparedStatement.execute();
+    } catch (SQLException ex) {
+      System.err.println("Erro ao criar a tabela: " + ex.getMessage());
     }
   }
 
