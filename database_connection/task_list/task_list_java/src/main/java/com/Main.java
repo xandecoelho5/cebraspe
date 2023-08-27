@@ -3,6 +3,7 @@ package com;
 import java.io.IOException;
 
 import com.database.DbConnection;
+import com.database.H2Connection;
 import com.database.MySQLConnection;
 import com.database.PostgresConnection;
 import com.database.SQLiteConnection;
@@ -16,7 +17,7 @@ import com.view.HomeView;
 public class Main {
   public static void main(String[] args) {
     try (MyScanner reader = new MyScanner();
-        DbConnection connection = new PostgresConnection();) {
+        DbConnection connection = new H2Connection();) {
       // var taskService = new TaskService(new FileTaskRepository(new FileHandler()));
 
       var taskService = new TaskService(new DatabaseRepository(connection));

@@ -1,0 +1,1 @@
+firstQuarter=346819580,51, secondQuarter=1247246926,47, thirdQuarter=200684028,71, fourthQuarter=212505406,85
