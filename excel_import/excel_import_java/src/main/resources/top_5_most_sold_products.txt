@@ -1,5 +1,0 @@
-ProductSku: 1722001001CWD3, BillingAmount: 30599098,36
-ProductSku: 1704GSBNCO3, BillingAmount: 7673,57
-ProductSku: 1722001PTRS1B3, BillingAmount: 6916178,49
-ProductSku: 17ZZZZZZ0D------75683, BillingAmount: 45629,87
-ProductSku: 17FA0NT2LV------0XL13, BillingAmount: 5508806,39
