@@ -17,10 +17,10 @@ import com.view.HomeView;
 public class Main {
   public static void main(String[] args) {
     try (MyScanner reader = new MyScanner();
-        DbConnection connection = new H2Connection();) {
-      // var taskService = new TaskService(new FileTaskRepository(new FileHandler()));
+        DbConnection connection = new SQLiteConnection();) {
+      var taskService = new TaskService(new FileTaskRepository(new FileHandler()));
 
-      var taskService = new TaskService(new DatabaseRepository(connection));
+      // var taskService = new TaskService(new DatabaseRepository(connection));
       var homeView = new HomeView(reader, taskService);
       homeView.start();
 
